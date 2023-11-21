@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	url := "http://localhost:8080?name=ASDF"
+	url := "http://localhost:8080?name=Deepak"
 
 	// Make the GET request
 	response, err := http.Get(url)
