@@ -21,7 +21,7 @@ func (c count) String() string {
 
 // Anything can be of type Stringer, it just needs to implement String() function
 func logInfo(v fmt.Stringer) {
-	log.Println("Module 138", v.String())
+	log.Println("Module 138", v.String()) // v would also work
 }
 
 func main() {
@@ -45,7 +45,11 @@ func main() {
 
 	w := 34
 	fmt.Println(w) // does this not use String() internally ??
-	//logInfo(w) , w is of type int, int does not implement String(), hence it cannot be passed to 
+	//logInfo(w) // w is of type int, int does not implement String(), hence it cannot be passed to 
 	// logInfo function
+	/* 
+	.\main.go:48:10: cannot use w (variable of type int) as fmt.Stringer value in argument to logInfo: 
+	int does not implement fmt.Stringer (missing method String)
+	*/
 }
 
