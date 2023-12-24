@@ -1,0 +1,57 @@
+NEED TO GO THROUGH PROFESSOR TODD's NOTES
+
+1. You can create types in Go. User defined Types and then create a Value of a Type
+
+2. Lecture Notes for video 127 , all about composition and how go implements oops
+
+3. panic: assignment to entry in nil map
+    a. you are trying to assign a value to a key in a map, but the map itself is nil (not initialized)
+    b. to fix this issue, you need to initialize the map before you can use it. You can do this using  the 'make' function or by using the composite literal
+    c. var myMap = make(map[string]int)
+    d. myMap := map[string]int{}
+    e. Make sure to initialize the map before attempting to modify it. If you try to assign a value to a key in a nil map
+        it will result in runtime panic.
+
+4. redundancy creates code pollution
+
+5. function syntax : func (receiver) identifier (parameters) (returns) {code}
+    a. we define our func with parameters (in any)
+    b. we call our func and pass in arguments (if any)
+
+6. Everything in Go is pass by value ??
+
+7. fmt.Println(), is a variadic parameter, it takes unlimited number of arguments of type any
+
+8.  A "defer" statement invokes a function whose execution is deferred to the moment the surrounding
+    function returns, either because 
+    a. the surrounding function exectuted a return statement
+    b. reached the end of its function body
+    c. or because the corressponding goroutine is panicking
+    
+    It's an unusual but effective way to deal with situations such as resources that must be released
+    regardless of which path a function takes to return. The canonical examples are unlocking a mutex or closing a file
+
+9. Methods in go -> attach function to a type
+    Any value of that type will have access to that function as a method
+    Implemented with the help of receiver
+
+10. In Go, Interfaces allow us to have polymorphism
+    An Interface in go defines a set of method signatures
+    Polymorphism is the ability of a VALUE of a certain TYPE to also be of another TYPE
+    In Go, values can be of more than one type
+
+11. The below definition means, any value that is of a certain type
+    which as a method Introduce()
+    will also be of type human
+        1. Any value of type person will also be of type human
+        2. Any value of type secretAgent will also be of type human
+
+    So, a value can be of more than one type -> Polymorphism
+
+12. For values of struct types, to use them as interface type   
+    a. the struct should implement all interface functions 
+    b. all functions
+        i.   should have same name
+        ii.  same number of parameters
+        iii. same type of parameters
+        iv.  same return type
