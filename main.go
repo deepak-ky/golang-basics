@@ -1,44 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
 
-type book struct {
-	title string
+type struct1 struct {
+	Status string `json:"statusValue"`
 }
 
-type studyItem interface {
-	printName()
-}
+func main() {  
+	//status := "UP"
+	s1 := struct1{Status: "UP"}
+	jsonBytes, _ := json.Marshal(s1)
+	fmt.Println(jsonBytes)
+	fmt.Println(string(jsonBytes))
 
-func (b *book) printName() {
-	fmt.Printf(b.title)
-}
+	file, err := os.Create("output.json")
+	if err != nil {
+		fmt.Println("Error creating file:", err)
+		return
+	}
+	defer file.Close()
 
-/* func (b *book) printName() {
-	fmt.Printf(b.title)
-}
- */
-func callStudyItem(si studyItem) {
-	si.printName()
-	fmt.Println(" -> Study Item called")
-}
+	jsonEncoder := json.NewEncoder(file)
+	err = jsonEncoder.Encode(s1)
+	if err != nil {
 
-func main() {
-	b1 := book{
-		title: "freemind",
 	}
 
-	var b2 *book 
-	b2 = &book{
-		title: "mangoose",
-	}
-
-	fmt.Println(b1)
-	fmt.Printf("%T \n",b1)
-
-	fmt.Println(b2)
-	fmt.Printf("%T \n",b2)
-
-	//callStudyItem(b1)
-	callStudyItem(b2)
 }
