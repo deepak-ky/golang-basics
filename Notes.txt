@@ -55,3 +55,11 @@ NEED TO GO THROUGH PROFESSOR TODD's NOTES
         ii.  same number of parameters
         iii. same type of parameters
         iv.  same return type
+
+13. nil is a predeclared identifier representing the zero value for a type
+    a. pointer
+    b. channel
+    c. func
+    d. interface
+    e. map
+    f. slice 

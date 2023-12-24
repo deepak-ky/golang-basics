@@ -1,0 +1,7 @@
+1. nil is a predeclared identifier representing the zero value for a type
+    a. pointer
+    b. channel
+    c. func
+    d. interface
+    e. map
+    f. slice 
