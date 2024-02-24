@@ -9,6 +9,9 @@
 
 4. RWMutex and Mutex
     a. When you call RLock() on an RWMutex, it means you're acquiring a **read lock**. 
+
     b. Multiple readers can hold this **read lock simultaneously, and while they hold the read lock, other readers can also acquire it.**
+
     c. What's important is that **no writer can acquire the write lock (Lock()) while there are active read locks.** 
+    
     d. This ensures that readers have shared access and can read the data concurrently without interfering with each other.
