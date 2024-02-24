@@ -1,0 +1,35 @@
+1. Concurrency is not Parallelism
+2. Parallelism is programs executing simultaneously on multiple cores
+3. Concrrency is a design pattern
+4. Concurrent code will run sequentially on a single core machine
+5. Concrrent code will run parallely on a multi core machine - Parallelism achieved
+6. Intel released its dual core machine in market in 2006, after which in 2007 Google started writing the Go Programming language, which was natively built to take advantage of multiple cores.
+
+Lecture : https://www.udemy.com/course/learn-how-to-code/learn/lecture/29886352#content 7. Share by Communicating
+a.Concurrent Programming in many environments is made difficult by the subtleties required to implement correct access to shared variables
+b. Golang Slogan (Design Approach)
+
+- Do not communicate by sharing memory; instead; share memory by communicating
+  => "Do not communicate by sharing memory,"
+  --> Refers to avoiding the traditional approach of sharing data between concurrent processes or threads by directly accessing shared memory locations.
+  --> This practice can lead to issues like race conditions, where multiple threads may attempt to read from or write to the same memory location concurrently, causing unpredictable behavior.
+
+  => Share memory by communicating : If different threads want to access the same memory address, share it but by communicating,
+  kind of knowing which thread is using it at which time?
+
+  "share memory by communicating,"
+  --> Suggests an alternative approach using communication between concurrent processes or goroutines, typically facilitated by channels in Go.
+  --> Rather than sharing data directly, **goroutines should communicate by passing messages through channels**. _This encourages a more controlled and explicit form of communication, "where data is sent from one goroutine to another", ensuring that access to shared resources is "synchronized and coordinated."_
+
+8. Goroutines :
+   -> Independent, concurrent, thread of control
+   a. Goroutines are multiplexed onto multiple OS threads,
+   b. so if one should block, such as while waiting for I/O,
+   c. others continue to run.
+   d. Their design hides many of the complexities of thread creation and management
+
+9. When a goroutine call completes, the goroutines exits, silently
+
+10. If a goroutine function has any return values, they are discarded when the function completes
+
+

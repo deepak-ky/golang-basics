@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+var mp = make(map[string]map[string]map[string]string)
+
+func main() {
+	//var mp  = make(map[string]string)
+	// //mp := map[int]int{}
+	// //mp = make(map[int]int)
+	// mp[1] = make(map[int]string)
+	// mp[1][2] = "Asdf"
+	mp["asdf"] = make(map[string]map[string]string)
+	mp["asdf"]["ASDf"] = make(map[string]string)
+	mp["asdf"]["ASDf"]["zxcv"] = "ASDf" 
+	fmt.Println(mp)
+}

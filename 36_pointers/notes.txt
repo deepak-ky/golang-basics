@@ -1,0 +1,9 @@
+A method set determines the interfaces that the type implementes
+Lecture : https://www.udemy.com/course/learn-how-to-code/learn/lecture/11922318#content
+
+
+Receivers       Values
+(t T)          T and T*
+(t *T)            T*
+
+

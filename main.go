@@ -1,33 +1,37 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
+	"sync"
 )
 
-type struct1 struct {
-	Status string `json:"statusValue"`
+var wg sync.WaitGroup
+
+func main() {
+	wg.Add(2)
+	go foo()
+	go fooNew()
+	bar()
+
+	wg.Wait()
 }
 
-func main() {  
-	//status := "UP"
-	s1 := struct1{Status: "UP"}
-	jsonBytes, _ := json.Marshal(s1)
-	fmt.Println(jsonBytes)
-	fmt.Println(string(jsonBytes))
-
-	file, err := os.Create("output.json")
-	if err != nil {
-		fmt.Println("Error creating file:", err)
-		return
+func foo() {
+	for i := 0; i < 1000; i++ {
+		fmt.Println("foo: ", i)
 	}
-	defer file.Close()
+	wg.Done()
+}
 
-	jsonEncoder := json.NewEncoder(file)
-	err = jsonEncoder.Encode(s1)
-	if err != nil {
-
+func fooNew() {
+	for i := 0; i < 1000; i++ {
+		fmt.Println("fooNew: ", i)
 	}
+	wg.Done()
+}
 
+func bar() {
+	for i := 0; i < 1000; i++ {
+		fmt.Println("bar: ", i)
+	}
 }
