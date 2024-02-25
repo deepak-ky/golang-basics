@@ -3,17 +3,21 @@ package main
 import (
 	"fmt"
 	"sync"
+	"math/rand"
 )
 
 var wg sync.WaitGroup
 
 func main() {
-	wg.Add(2)
+	/* wg.Add(2)
 	go foo()
 	go fooNew()
 	bar()
 
-	wg.Wait()
+	wg.Wait() */
+
+	fmt.Println("asdf")
+	fmt.Println(rand.Intn(100))
 }
 
 func foo() {

@@ -48,6 +48,8 @@ func main() {
 			but only one actually finishes, 
 			and there is no other goroutine to finsh ("all goroutines are asleep"),
 			leaving the program in a deadlock.
+
+			wg.Wait() -> Waiting for something(a goroutine) to finish which does not exist => DEADLOCK
 	*/
 
 
