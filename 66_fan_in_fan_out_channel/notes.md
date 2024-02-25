@@ -27,6 +27,8 @@
 
 
 
+Nice reference (need to try out examples): https://www.educative.io/answers/what-is-the-fan-out-fan-in-pattern-in-golang
+
 
 ![alt text](image.png)
 
